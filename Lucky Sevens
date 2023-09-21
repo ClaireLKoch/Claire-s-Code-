@@ -1,0 +1,53 @@
+"""
+File: Assignment 2. lucky sevens.py
+Author: Claire Koch
+Purpose: create a lucky sevens game
+Input:
+   current pot amount
+Output:
+    roll results
+    current pot balance
+    number of rolls
+Analysis:
+    have the current pot amount be set to 10. create a loop of random rolls.
+    if the sum of the rolls is equal to 7 then add 4 to pot
+    if the sum of rolls is not equal to 7 subract 1 from the pot
+    Go until the pot is equal to 0, and display results
+"""
+# Explain game to user.
+print("Hello, welcome to Lucky Sevens!, let's get started. "
+      "Two die will be rolled, if the sum is 7 then $4.00 will be added to your pot."
+      "If the sum is not equal to 7, then $1.00 will be subtracted from your pot."
+      "The game will continue until you run out of money in your pot!"
+      "Have fun and good luck!")
+import random
+# Get the starting pot amount
+Pot = float(input(("Your current balance is $10.00. If you wish to proceed type 10.")))
+Count = 0
+# Get the results of the rolls and new pot balance
+while Pot > 0:
+    Diceroll1= random.randint(1,6)
+    Diceroll2= random.randint(1,6)
+    Count += 1
+    print("First Dice:")
+    print(Diceroll1)
+    print("Second Dice:")
+    print(Diceroll2)
+    print("Sum of die")
+    print(Diceroll1 + Diceroll2)
+    if Diceroll1 + Diceroll2 == 7:
+        Pot += 4
+        print("Your balance is = $","%.2f"%Pot)
+    else:
+        Pot -= 1
+        print("Your balance is = $","%.2f"%Pot)
+        input("To roll again press enter. To advance to results press and hold enter.")
+    # Once pot equals 0 display final results
+    if Pot == 0:
+        print("You're balance is now 0. The game has been terminated. Your number of total rolls=")
+        print(Count)
+
+
+
+
+
