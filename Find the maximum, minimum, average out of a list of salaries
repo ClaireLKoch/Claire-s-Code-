@@ -1,0 +1,13 @@
+def average(salary):
+size = len(salary)
+sum_of_salaries = sum(salary)
+return sum_of_salaries / size
+
+salary = [2500, 3200, 1800, 4000, 2900]
+max_salary = max(salary)
+min_salary = min(salary)
+average_salary = average(salary)
+
+print("Maximum salary:", max_salary)
+print("Minimum salary:", min_salary)
+print("Average salary:", average_salary)
