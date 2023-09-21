@@ -1,0 +1,48 @@
+"""
+File: assignment 4.py
+Author: Claire Koch
+Purpose: create a phonebook lookup system
+Input:
+   name
+Output:
+   phone number or end it
+Analysis:
+    take the input names and ouptut the corresponding phone number. Give the option to exit the loop.
+"""
+def read_phone_book(filename):
+    phone_book = {}
+    with open(filename, 'r') as file:
+        for line in file:
+            name, number = line.strip().split(': ')
+            phone_book[name] = number
+    return phone_book
+#takes the file, converts it to python and then opens a dictionary
+#creates a loop, and seperates the name and number
+def search_phone_number(phone_book, name):
+    if name in phone_book:
+        return phone_book[name]
+    else:
+        return None
+#looks up phone number based off name input,
+# checks if name is in dictionary
+def main():
+    phone_book = read_phone_book('phone_book.txt')
+
+    while True:
+        name = input("Enter the name to look up (or 'exit' to quit): ").strip()
+
+        if name.lower() == 'exit':
+            break
+
+        phone_number = search_phone_number(phone_book, name)
+        if phone_number:
+            print(f"{name}'s phone number is: {phone_number}")
+        else:
+            print(f"{name} is not found in the phone book.")
+# starts a loop
+# prompts the user to input
+# gives option to exit the loop
+# tells number for given name or tells user the name doesn't exist
+if __name__ == "__main__":
+    main()
+# initiates the phone book lookup
