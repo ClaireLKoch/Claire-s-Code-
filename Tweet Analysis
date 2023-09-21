@@ -1,0 +1,36 @@
+"""
+File: assignment 3.py
+Author: Claire Koch
+Purpose: This function counts the number of positive and negative words in a file of tweets and determines the sentiment
+Input:
+    Files= tweets.txt, positive.txt, negative.txt
+Output:
+    the number of positive and negative terms
+    the sentiment
+Analysis:
+    take the inputs and calculate output of the number of positive and negative words and the sentiment
+"""
+with open("positive.txt", 'r') as positive_word_file:
+    positive_words = positive_word_file.read().splitlines()
+with open("negative.txt", 'r') as negative_word_file:
+    negative_words = negative_word_file.read().splitlines()
+with open("tweets.txt", 'r',encoding="utf8") as tweets_file:
+    tweets = tweets_file.read().splitlines()
+positive_count = 0
+negative_count = 0
+for tweet in tweets:
+    words = tweet.split()
+for word in words:
+        if word.lower() in positive_words:
+            positive_count += 1
+        elif word.lower() in negative_words:
+            negative_count += 1
+if positive_count > negative_count:
+    sentiment = "positive"
+elif positive_count < negative_count:
+    sentiment = "negative"
+else:
+    sentiment = "neutral"
+print("sentiment: ", sentiment)
+print("positive: ", positive_count)
+print("negative: ", negative_count)
