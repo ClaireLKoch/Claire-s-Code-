@@ -1,0 +1,24 @@
+""
+File: assignment 1.py
+Author: Claire Koch
+Purpose: compute a person's weekly wage
+Input:
+    hourly wage
+    regular hours
+    overtime hours
+Output:
+    weekly pay
+Analysis:
+    take the inputs and calculate output of the weekly pay
+    weekly pay= (hourly wage * regular hours) + (1.5 * hourly wage * overtime hours)
+"""
+# Get the hourly wage from user
+hWages= float(input("Enter Regular Time Hourly Wage: "))
+# Get the total number of regular hours from user
+rHours=float(input("Enter Total Number of Regular Hours: "))
+# Get the overtime hours from the user
+otHours= float(input("Enter Overtime Hours: "))
+# compute weekly pay
+weeklyPay= (hWages * rHours) + (1.5 * hWages * otHours)
+#print the weekly pay
+print("Total Weekly Pay = $","%.2f"%weeklyPay)
